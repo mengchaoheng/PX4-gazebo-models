@@ -372,7 +372,7 @@
           <upper>0.35</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
           <friction>0.0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -395,7 +395,7 @@
           <upper>0.35</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
           <friction>0.0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -462,12 +462,12 @@
         <propeller>
           <joint>r1_joint</joint>
           <k_v>0.018</k_v>
-          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
         </propeller>
         <propeller>
           <joint>r2_joint</joint>
           <k_v>0.018</k_v>
-          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -495,12 +495,12 @@
         <propeller>
           <joint>r1_joint</joint>
           <k_v>0.018</k_v>
-          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
         </propeller>
         <propeller>
           <joint>r2_joint</joint>
           <k_v>0.018</k_v>
-          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -536,7 +536,7 @@
       <motorNumber>0</motorNumber>
       <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
-      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
     <plugin name="gz::sim::systems::MulticopterMotorModel" filename="gz-sim-multicopter-motor-model-system">
@@ -552,7 +552,7 @@
       <motorNumber>1</motorNumber>
       <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
-      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
     <static>0</static>

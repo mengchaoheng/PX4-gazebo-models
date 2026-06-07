@@ -1418,7 +1418,7 @@
           <upper>0.6981</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1438,7 +1438,7 @@
           <upper>0.6981</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1458,7 +1458,7 @@
           <upper>0.6981</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1478,7 +1478,7 @@
           <upper>0.6981</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1498,7 +1498,7 @@
           <upper>0.6981</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1518,7 +1518,7 @@
           <upper>0.6981</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1603,7 +1603,169 @@
         </dynamics>
       </axis>
     </joint>
-    <plugin name="px4::DuctedFanPlugin" filename="libDuctedFanPlugin.dylib">
+    <plugin name="px4::DuctedFanLiftDrag" filename="libDuctedFanLiftDragPlugin.dylib">
+      <propeller_wind_map>
+        <propeller>
+          <joint>rotor_joint</joint>
+          <k_v>0.02</k_v>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+        </propeller>
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.073699 0 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0 -1 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS1_joint</control_joint_name>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="px4::DuctedFanLiftDrag" filename="libDuctedFanLiftDragPlugin.dylib">
+      <propeller_wind_map>
+        <propeller>
+          <joint>rotor_joint</joint>
+          <k_v>0.02</k_v>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+        </propeller>
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.036849 0.063825 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0.866 -0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS2_joint</control_joint_name>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="px4::DuctedFanLiftDrag" filename="libDuctedFanLiftDragPlugin.dylib">
+      <propeller_wind_map>
+        <propeller>
+          <joint>rotor_joint</joint>
+          <k_v>0.02</k_v>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+        </propeller>
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.036849 0.063825 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0.866 0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS3_joint</control_joint_name>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="px4::DuctedFanLiftDrag" filename="libDuctedFanLiftDragPlugin.dylib">
+      <propeller_wind_map>
+        <propeller>
+          <joint>rotor_joint</joint>
+          <k_v>0.02</k_v>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+        </propeller>
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.073699 0 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>0 1 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS4_joint</control_joint_name>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="px4::DuctedFanLiftDrag" filename="libDuctedFanLiftDragPlugin.dylib">
+      <propeller_wind_map>
+        <propeller>
+          <joint>rotor_joint</joint>
+          <k_v>0.02</k_v>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+        </propeller>
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.036849 -0.063825 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>-0.866 0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS5_joint</control_joint_name>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="px4::DuctedFanLiftDrag" filename="libDuctedFanLiftDragPlugin.dylib">
+      <propeller_wind_map>
+        <propeller>
+          <joint>rotor_joint</joint>
+          <k_v>0.02</k_v>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+        </propeller>
+        <wash_only>false</wash_only>
+      </propeller_wind_map>
+      <a0>0</a0>
+      <cla>0</cla>
+      <cda>0</cda>
+      <cma>0</cma>
+      <alpha_stall>0.6</alpha_stall>
+      <cla_stall>0</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0.036849 -0.063825 -0.174479</cp>
+      <area>0.0018</area>
+      <air_density>1.2041</air_density>
+      <forward>0 0 1</forward>
+      <upward>-0.866 -0.5 0</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>CS6_joint</control_joint_name>
+      <control_joint_rad_to_cl>2.9584</control_joint_rad_to_cl>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="gz::sim::systems::MulticopterMotorModel" filename="gz-sim-multicopter-motor-model-system">
       <jointName>rotor_joint</jointName>
       <linkName>rotor</linkName>
       <turningDirection>ccw</turningDirection>
@@ -1611,45 +1773,13 @@
       <timeConstantDown>0.03</timeConstantDown>
       <maxRotVelocity>1200</maxRotVelocity>
       <motorConstant>2.937612e-05</motorConstant>
-      <thrustVelocityCoupling>-3.7614e-04</thrustVelocityCoupling>
-      <thrustAoaCoupling>-2.6733e-04</thrustAoaCoupling>
-      <sideForceVelocityCoupling>5.0699e-04</sideForceVelocityCoupling>
       <momentConstant>5.7792e-07</momentConstant>
-      <sideForceArmZ>-0.15</sideForceArmZ>
-      <thrustCenterOffsetCoeff>2.6619</thrustCenterOffsetCoeff>
-      <ductExpansionRatio>0.7</ductExpansionRatio>
-      <ductDiskArea>0.0408</ductDiskArea>
-      <airDensity>1.225</airDensity>
-      <pitchDampingConstant>0.0198</pitchDampingConstant>
-      <pitchDampingVelocityCoeff>0.0015</pitchDampingVelocityCoeff>
-      <ductTorqueCoeff>5.3688e-04</ductTorqueCoeff>
-      <fanInertia>3.7e-05</fanInertia>
-      <control_joint_name_1>CS1_joint</control_joint_name_1>
-      <control_joint_name_2>CS2_joint</control_joint_name_2>
-      <control_joint_name_3>CS3_joint</control_joint_name_3>
-      <control_joint_name_4>CS4_joint</control_joint_name_4>
-      <control_joint_name_5>CS5_joint</control_joint_name_5>
-      <control_joint_name_6>CS6_joint</control_joint_name_6>
-      <control_surface_force_coeff>0.0032</control_surface_force_coeff>
-      <control_surface_arm_l1>0.267</control_surface_arm_l1>
-      <control_surface_arm_l2>0.066</control_surface_arm_l2>
-      <control_effectiveness_matrix>
-       -1.0     -0.5        0.5        1.0   0.5        -0.5
-        0.0    0.8660254   0.8660254   0.0  -0.8660254 -0.8660254
-        1.0      1.0        1.0        1.0   1.0        1.0
-      </control_effectiveness_matrix>
-      <forceTopicName>ductedfan/force</forceTopicName>
-      <torqueTopicName>ductedfan/torque</torqueTopicName>
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
       <rotorDragCoefficient>0</rotorDragCoefficient>
       <rollingMomentCoefficient>0</rollingMomentCoefficient>
-      <ductSplineDtFile>model://SHC09/duct_spline_dt.csv</ductSplineDtFile>
-      <ductSplineDnFile>model://SHC09/duct_spline_dn.csv</ductSplineDnFile>
-      <wingSplineWlFile>model://SHC09/wing_spline_wl.csv</wingSplineWlFile>
-      <wingSplineWdFile>model://SHC09/wing_spline_wd.csv</wingSplineWdFile>
-      <wingSplineWmFile>model://SHC09/wing_spline_wm.csv</wingSplineWmFile>
-      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
     </plugin>
     <static>0</static>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">

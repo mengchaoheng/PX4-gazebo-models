@@ -1062,7 +1062,7 @@
           <upper>0.3491</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1082,7 +1082,7 @@
           <upper>0.3491</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1102,7 +1102,7 @@
           <upper>0.3491</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1122,7 +1122,7 @@
           <upper>0.3491</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1142,7 +1142,7 @@
           <upper>0.3491</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1162,7 +1162,7 @@
           <upper>0.3491</upper>
         </limit>
         <dynamics>
-          <damping>0.001</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
       <physics>
@@ -1201,7 +1201,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.01624</k_v>
-          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -1229,7 +1229,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.01624</k_v>
-          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -1256,7 +1256,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.01624</k_v>
-          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -1283,7 +1283,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.01624</k_v>
-          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -1310,7 +1310,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.01624</k_v>
-          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -1337,7 +1337,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.01624</k_v>
-          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -1372,7 +1372,7 @@
       <motorNumber>0</motorNumber>
       <rotorDragCoefficient>0</rotorDragCoefficient>
       <rollingMomentCoefficient>0</rollingMomentCoefficient>
-      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
     <static>0</static>
