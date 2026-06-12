@@ -151,7 +151,7 @@
 
     <include merge="true">
       <uri>model://airspeed</uri>
-      <pose>0 0 0.7 0 -1.57 0</pose>
+      <pose>0 0 0.0 0 -1.57 0</pose>
     </include>
     <joint name="airspeed_joint" type="fixed">
       <parent>base_link</parent>
