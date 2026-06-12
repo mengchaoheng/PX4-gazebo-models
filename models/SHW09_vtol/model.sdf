@@ -148,6 +148,17 @@
         <update_rate>30</update_rate>
       </sensor>
     </link>
+
+    <include merge="true">
+      <uri>model://airspeed</uri>
+      <pose>0 0 0.7 0 -1.57 0</pose>
+    </include>
+    <joint name="airspeed_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>airspeed_link</child>
+      <pose relative_to="base_link">-0 0 0 0 0 0</pose>
+    </joint>
+
     <link name="link_0_0">
       <inertial>
         <mass>0.00000001</mass>
@@ -2429,7 +2440,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.0196</k_v>
-          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -2455,7 +2466,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.0196</k_v>
-          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -2481,7 +2492,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.0196</k_v>
-          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -2507,7 +2518,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.0196</k_v>
-          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -2533,7 +2544,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.0196</k_v>
-          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -2559,7 +2570,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.0196</k_v>
-          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -2632,65 +2643,81 @@
       <motorNumber>0</motorNumber>
       <rotorDragCoefficient>3.2e-4</rotorDragCoefficient>
       <rollingMomentCoefficient>4e-06</rollingMomentCoefficient>
-      <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
     <static>0</static>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>CS1_joint</joint_name>
       <sub_topic>servo_0</sub_topic>
-      <p_gain>10</p_gain>
+      <p_gain>50</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
+      <cmd_max>20</cmd_max>
+      <cmd_min>-20</cmd_min>
     </plugin>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>CS2_joint</joint_name>
       <sub_topic>servo_1</sub_topic>
-      <p_gain>10</p_gain>
+      <p_gain>50</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
+      <cmd_max>20</cmd_max>
+      <cmd_min>-20</cmd_min>
     </plugin>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>CS3_joint</joint_name>
       <sub_topic>servo_2</sub_topic>
-      <p_gain>10</p_gain>
+      <p_gain>50</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
+      <cmd_max>20</cmd_max>
+      <cmd_min>-20</cmd_min>
     </plugin>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>CS4_joint</joint_name>
       <sub_topic>servo_3</sub_topic>
-      <p_gain>10</p_gain>
+      <p_gain>50</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
+      <cmd_max>20</cmd_max>
+      <cmd_min>-20</cmd_min>
     </plugin>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>CS5_joint</joint_name>
       <sub_topic>servo_4</sub_topic>
-      <p_gain>10</p_gain>
+      <p_gain>50</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
+      <cmd_max>20</cmd_max>
+      <cmd_min>-20</cmd_min>
     </plugin>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>CS6_joint</joint_name>
       <sub_topic>servo_5</sub_topic>
-      <p_gain>10</p_gain>
+      <p_gain>50</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
+      <cmd_max>20</cmd_max>
+      <cmd_min>-20</cmd_min>
     </plugin>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>left_elevon_joint</joint_name>
       <sub_topic>servo_6</sub_topic>
-      <p_gain>10</p_gain>
+      <p_gain>50</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
+      <cmd_max>20</cmd_max>
+      <cmd_min>-20</cmd_min>
     </plugin>
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>right_elevon_joint</joint_name>
       <sub_topic>servo_7</sub_topic>
-      <p_gain>10</p_gain>
+      <p_gain>50</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
+      <cmd_max>20</cmd_max>
+      <cmd_min>-20</cmd_min>
     </plugin>
   </model>
 </sdf>
