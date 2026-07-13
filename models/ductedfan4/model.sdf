@@ -526,14 +526,14 @@
     </link>
     <link name="rotor">
       <inertial>
-        <mass>0.005</mass>
+        <mass>0.000001836</mass>
         <inertia>
-          <ixx>9.75e-07</ixx>
+          <ixx>0.00000019</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.000166704</iyy>
+          <iyy>0.00000019</iyy>
           <iyz>0</iyz>
-          <izz>0.000167604</izz>
+          <izz>0.00000037</izz>
         </inertia>
         <pose>-0.0 -0.0 -0.04250779552 0 -0 0</pose>
       </inertial>
@@ -567,9 +567,13 @@
         <limit>
           <lower>-0.3491</lower>
           <upper>0.3491</upper>
+          <!-- Required by the GZ velocity-command backend when position
+               limits exist. This numerical ceiling is intentionally far
+               above any physical servo torque; it is not a servo model. -->
+          <effort>1e6</effort>
         </limit>
         <dynamics>
-          <damping>1.0</damping>
+          <damping>0.1</damping>
         </dynamics>
       </axis>
       <physics>
@@ -587,9 +591,10 @@
         <limit>
           <lower>-0.3491</lower>
           <upper>0.3491</upper>
+          <effort>1e6</effort>
         </limit>
         <dynamics>
-          <damping>1.0</damping>
+          <damping>0.1</damping>
         </dynamics>
       </axis>
       <physics>
@@ -607,9 +612,10 @@
         <limit>
           <lower>-0.3491</lower>
           <upper>0.3491</upper>
+          <effort>1e6</effort>
         </limit>
         <dynamics>
-          <damping>1.0</damping>
+          <damping>0.1</damping>
         </dynamics>
       </axis>
       <physics>
@@ -627,9 +633,10 @@
         <limit>
           <lower>-0.3491</lower>
           <upper>0.3491</upper>
+          <effort>1e6</effort>
         </limit>
         <dynamics>
-          <damping>1.0</damping>
+          <damping>0.1</damping>
         </dynamics>
       </axis>
       <physics>
@@ -676,7 +683,7 @@
       <motorNumber>0</motorNumber>
       <rotorDragCoefficient>0</rotorDragCoefficient>
       <rollingMomentCoefficient>0</rollingMomentCoefficient>
-      <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
     <plugin filename="libDuctedFanLiftDragPlugin.dylib" name="px4::DuctedFanLiftDrag">
@@ -684,7 +691,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.01624</k_v>
-          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -711,7 +718,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.01624</k_v>
-          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -738,7 +745,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.01624</k_v>
-          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -765,7 +772,7 @@
         <propeller>
           <joint>rotor_joint</joint>
           <k_v>0.01624</k_v>
-          <rotorVelocitySlowdownSim>20</rotorVelocitySlowdownSim>
+          <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
       </propeller_wind_map>
@@ -787,10 +794,60 @@
       <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
+    <plugin name="px4::TorqueDisturbancePlugin" filename="TorqueDisturbancePlugin">
+      <link_name>base_link</link_name>
+      <start_time>15.0</start_time>
+      <running_time>0.0</running_time>
+      <repeat_count>1</repeat_count>
+      <repeat_interval>8.0</repeat_interval>
+      <bias_x>0.0</bias_x>
+      <bias_y>0.0</bias_y>
+      <bias_z>0.0</bias_z>
+      <amplitude_x>0.1</amplitude_x>
+      <amplitude_y>0.1</amplitude_y>
+      <amplitude_z>0.01</amplitude_z>
+      <frequency_x>0.2</frequency_x>
+      <frequency_y>0.4</frequency_y>
+      <frequency_z>0.2</frequency_z>
+      <force_bias_x>0.0</force_bias_x>
+      <force_bias_y>0.0</force_bias_y>
+      <force_bias_z>0.0</force_bias_z>
+      <force_amplitude_x>1.0</force_amplitude_x>
+      <force_amplitude_y>1.0</force_amplitude_y>
+      <force_amplitude_z>3.0</force_amplitude_z>
+      <force_frequency_x>0.2</force_frequency_x>
+      <force_frequency_y>0.2</force_frequency_y>
+      <force_frequency_z>0.2</force_frequency_z>
+    </plugin>
     <static>0</static>
+
+    <!-- Control-surface actuator model
+
+         With force / PID actuation (use_velocity_commands=false), the small
+         deflection dynamics are approximately
+
+           J * delta_ddot + b * delta_dot = Kp * (delta_cmd - delta).
+
+         When b^2 >> 4*J*Kp, the fast pole can be neglected and the dominant
+         first-order time constant and bandwidth are
+
+           tau ~= b/Kp,  f_3dB ~= 1/(2*pi*tau) = Kp/(2*pi*b),
+           t_95 ~= 3*tau.
+
+         Thus Kp=10 and joint damping b=0.1 correspond to tau ~= 0.010 s,
+         f_3dB ~= 15.9 Hz and t_95 ~= 0.030 s for the force-actuated model.
+
+         This simulation intentionally neglects servo dynamics, matching the
+         gazebo-classic position_kinematic behavior. In velocity-command mode
+         GZ closes the position error in one physics step (4 ms in default.sdf)
+         without PID overshoot. The 1e6 effort values on the joint limits are
+         only a GZ backend requirement for velocity control with position
+         limits; they do not model actuator torque saturation. The PID gains
+         below are retained only as documented fallback values. -->
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>cs1_joint</joint_name>
       <sub_topic>servo_0</sub_topic>
+      <use_velocity_commands>true</use_velocity_commands>
       <p_gain>10</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
@@ -798,6 +855,7 @@
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>cs2_joint</joint_name>
       <sub_topic>servo_1</sub_topic>
+      <use_velocity_commands>true</use_velocity_commands>
       <p_gain>10</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
@@ -805,6 +863,7 @@
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>cs3_joint</joint_name>
       <sub_topic>servo_2</sub_topic>
+      <use_velocity_commands>true</use_velocity_commands>
       <p_gain>10</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
@@ -812,6 +871,7 @@
     <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
       <joint_name>cs4_joint</joint_name>
       <sub_topic>servo_3</sub_topic>
+      <use_velocity_commands>true</use_velocity_commands>
       <p_gain>10</p_gain>
       <i_gain>0</i_gain>
       <d_gain>0</d_gain>
