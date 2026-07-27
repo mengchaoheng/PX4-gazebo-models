@@ -5,7 +5,8 @@
     <link name="base_link">
       <pose>0 0 0 0 0 0</pose>
       <inertial>
-        <mass>1.37499768</mass>
+        <!-- Keep the complete GZ model mass at 1.56 kg. -->
+        <mass>1.559998124</mass>
         <inertia>
           <ixx>0.01149</ixx>
           <ixy>0</ixy>
@@ -677,7 +678,8 @@
       <timeConstantUp>0.03</timeConstantUp>
       <timeConstantDown>0.03</timeConstantDown>
       <maxRotVelocity>1750</maxRotVelocity>
-      <motorConstant>9.08e-06</motorConstant>
+      <!-- Fmax=29.9584 N at maxRotVelocity=1750 rad/s. -->
+      <motorConstant>9.782349e-06</motorConstant>
       <momentConstant>0.0</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
