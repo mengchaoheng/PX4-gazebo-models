@@ -59,7 +59,8 @@
 
       <!-- GZBridge currently requires these native sensors and names on base_link. -->
       <sensor name="imu_sensor" type="imu">
-        <pose>0 0 0.02 0 0 0</pose>
+        <!-- Classic IMU plugin measures base_link at its origin. -->
+        <pose>0 0 0 0 0 0</pose>
         <gz_frame_id>base_link</gz_frame_id>
         <always_on>true</always_on>
         <update_rate>250</update_rate>
@@ -192,7 +193,7 @@
     </joint>
 
     <link name="rotor_0">
-      <pose>0.13 -0.22 0.023 0 0 0</pose>
+      <pose>0.125 -0.22 0.023 0 0 0</pose>
       <inertial>
         <mass>0.00001</mass>
         <inertia>
@@ -269,7 +270,7 @@
     </joint>
 
     <link name="rotor_1">
-      <pose>-0.13 0.20 0.023 0 0 0</pose>
+      <pose>-0.1385 0.206 0.023 0 0 0</pose>
       <inertial>
         <mass>0.00001</mass>
         <inertia>
@@ -346,7 +347,7 @@
     </joint>
 
     <link name="rotor_2">
-      <pose>0.13 0.22 0.023 0 0 0</pose>
+      <pose>0.125 0.223 0.023 0 0 0</pose>
       <inertial>
         <mass>0.00001</mass>
         <inertia>
@@ -423,7 +424,7 @@
     </joint>
 
     <link name="rotor_3">
-      <pose>-0.13 -0.20 0.023 0 0 0</pose>
+      <pose>-0.1385 -0.2025 0.023 0 0 0</pose>
       <inertial>
         <mass>0.00001</mass>
         <inertia>
@@ -504,15 +505,15 @@
       <jointName>rotor_0_joint</jointName>
       <linkName>rotor_0</linkName>
       <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
@@ -521,15 +522,15 @@
       <jointName>rotor_1_joint</jointName>
       <linkName>rotor_1</linkName>
       <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>1</motorNumber>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
@@ -538,15 +539,15 @@
       <jointName>rotor_2_joint</jointName>
       <linkName>rotor_2</linkName>
       <turningDirection>cw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>2</motorNumber>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
@@ -555,15 +556,15 @@
       <jointName>rotor_3_joint</jointName>
       <linkName>rotor_3</linkName>
       <turningDirection>cw</turningDirection>
-      <timeConstantUp>0.00125</timeConstantUp>
-      <timeConstantDown>0.0025</timeConstantDown>
+      <timeConstantUp>0.0005</timeConstantUp>
+      <timeConstantDown>0.0005</timeConstantDown>
       <maxRotVelocity>2372.6</maxRotVelocity>
       <motorConstant>1.51e-06</motorConstant>
       <momentConstant>0.0157</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
       <motorNumber>3</motorNumber>
-      <rotorDragCoefficient>0.000175</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorDragCoefficient>0</rotorDragCoefficient>
+      <rollingMomentCoefficient>0</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
