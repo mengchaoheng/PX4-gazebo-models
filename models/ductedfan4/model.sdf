@@ -688,7 +688,7 @@
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
-    <plugin filename="libDuctedFanLiftDragPlugin.dylib" name="px4::DuctedFanLiftDrag">
+    <plugin filename="DuctedFanLiftDragPlugin" name="px4::DuctedFanLiftDrag">
       <propeller_wind_map>
         <propeller>
           <joint>rotor_joint</joint>
@@ -715,7 +715,7 @@
       <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin filename="libDuctedFanLiftDragPlugin.dylib" name="px4::DuctedFanLiftDrag">
+    <plugin filename="DuctedFanLiftDragPlugin" name="px4::DuctedFanLiftDrag">
       <propeller_wind_map>
         <propeller>
           <joint>rotor_joint</joint>
@@ -742,7 +742,7 @@
       <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin filename="libDuctedFanLiftDragPlugin.dylib" name="px4::DuctedFanLiftDrag">
+    <plugin filename="DuctedFanLiftDragPlugin" name="px4::DuctedFanLiftDrag">
       <propeller_wind_map>
         <propeller>
           <joint>rotor_joint</joint>
@@ -769,7 +769,7 @@
       <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin filename="libDuctedFanLiftDragPlugin.dylib" name="px4::DuctedFanLiftDrag">
+    <plugin filename="DuctedFanLiftDragPlugin" name="px4::DuctedFanLiftDrag">
       <propeller_wind_map>
         <propeller>
           <joint>rotor_joint</joint>
