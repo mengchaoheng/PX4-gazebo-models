@@ -409,12 +409,14 @@
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
-          <ixx>0.000001</ixx>
+          <!-- Original diagonal inertia: 1e-6 kg m^2 per axis.
+               Visual vanes have negligible inertia in the rigid-body model. -->
+          <ixx>0.0000000001</ixx>
           <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
+          <iyy>0.0000000001</iyy>
           <ixz>0.0</ixz>
           <iyz>0.0</iyz>
-          <izz>0.000001</izz>
+          <izz>0.0000000001</izz>
         </inertia>
         <pose>0.06976717442 0 -0.14877551654 0 -0 0</pose>
       </inertial>
@@ -439,12 +441,14 @@
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
-          <ixx>0.000001</ixx>
+          <!-- Original diagonal inertia: 1e-6 kg m^2 per axis.
+               Visual vanes have negligible inertia in the rigid-body model. -->
+          <ixx>0.0000000001</ixx>
           <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
+          <iyy>0.0000000001</iyy>
           <ixz>0.0</ixz>
           <iyz>0.0</iyz>
-          <izz>0.000001</izz>
+          <izz>0.0000000001</izz>
         </inertia>
         <pose>0 -0.06976717442 -0.1487769891 0 -0 0</pose>
       </inertial>
@@ -469,12 +473,14 @@
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
-          <ixx>0.000001</ixx>
+          <!-- Original diagonal inertia: 1e-6 kg m^2 per axis.
+               Visual vanes have negligible inertia in the rigid-body model. -->
+          <ixx>0.0000000001</ixx>
           <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
+          <iyy>0.0000000001</iyy>
           <ixz>0.0</ixz>
           <iyz>0.0</iyz>
-          <izz>0.000001</izz>
+          <izz>0.0000000001</izz>
         </inertia>
         <pose>-0.06976717442 0 -0.14877551654 0 -0 0</pose>
       </inertial>
@@ -499,12 +505,14 @@
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
-          <ixx>0.000001</ixx>
+          <!-- Original diagonal inertia: 1e-6 kg m^2 per axis.
+               Visual vanes have negligible inertia in the rigid-body model. -->
+          <ixx>0.0000000001</ixx>
           <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
+          <iyy>0.0000000001</iyy>
           <ixz>0.0</ixz>
           <iyz>0.0</iyz>
-          <izz>0.000001</izz>
+          <izz>0.0000000001</izz>
         </inertia>
         <pose>0 0.06976717442 -0.1487769891 0 -0 0</pose>
       </inertial>
@@ -688,11 +696,15 @@
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
+    <!-- Vane lift acts at the original surface positions; r x F supplies torque.
+         Real rotor wash and body-Z relative inflow set the dynamic pressure.
+         The 0.011 m COM offset gives a 0.167 m roll/pitch lever arm.
+         Zero-inflow hover torque matches the existing CA_SV_CS*_TRQ_* values. -->
     <plugin filename="DuctedFanLiftDragPlugin" name="px4::DuctedFanLiftDrag">
       <propeller_wind_map>
         <propeller>
           <joint>rotor_joint</joint>
-          <k_v>0.01624</k_v>
+          <k_v>0.015990232159</k_v>
           <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
@@ -712,14 +724,20 @@
       <upward>0 -1 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>cs1_joint</control_joint_name>
-      <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.70864541647572</control_joint_rad_to_cl>
       <windSubTopic>world_wind</windSubTopic>
+      <cm_delta>0</cm_delta>
+      <axial_flow_only>true</axial_flow_only>
+      <axial_momentum_flow>true</axial_momentum_flow>
+      <axial_flow_axis>0 0 1</axial_flow_axis>
+      <radial_symmetry>false</radial_symmetry>
+      <reversible>true</reversible>
     </plugin>
     <plugin filename="DuctedFanLiftDragPlugin" name="px4::DuctedFanLiftDrag">
       <propeller_wind_map>
         <propeller>
           <joint>rotor_joint</joint>
-          <k_v>0.01624</k_v>
+          <k_v>0.015990232159</k_v>
           <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
@@ -739,14 +757,20 @@
       <upward>1 0 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>cs2_joint</control_joint_name>
-      <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.70864541647572</control_joint_rad_to_cl>
       <windSubTopic>world_wind</windSubTopic>
+      <cm_delta>0</cm_delta>
+      <axial_flow_only>true</axial_flow_only>
+      <axial_momentum_flow>true</axial_momentum_flow>
+      <axial_flow_axis>0 0 1</axial_flow_axis>
+      <radial_symmetry>false</radial_symmetry>
+      <reversible>true</reversible>
     </plugin>
     <plugin filename="DuctedFanLiftDragPlugin" name="px4::DuctedFanLiftDrag">
       <propeller_wind_map>
         <propeller>
           <joint>rotor_joint</joint>
-          <k_v>0.01624</k_v>
+          <k_v>0.015990232159</k_v>
           <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
@@ -766,14 +790,20 @@
       <upward>0 -1 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>cs3_joint</control_joint_name>
-      <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.70864541647572</control_joint_rad_to_cl>
       <windSubTopic>world_wind</windSubTopic>
+      <cm_delta>0</cm_delta>
+      <axial_flow_only>true</axial_flow_only>
+      <axial_momentum_flow>true</axial_momentum_flow>
+      <axial_flow_axis>0 0 1</axial_flow_axis>
+      <radial_symmetry>false</radial_symmetry>
+      <reversible>true</reversible>
     </plugin>
     <plugin filename="DuctedFanLiftDragPlugin" name="px4::DuctedFanLiftDrag">
       <propeller_wind_map>
         <propeller>
           <joint>rotor_joint</joint>
-          <k_v>0.01624</k_v>
+          <k_v>0.015990232159</k_v>
           <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
         </propeller>
         <wash_only>false</wash_only>
@@ -793,9 +823,16 @@
       <upward>1 0 0</upward>
       <link_name>base_link</link_name>
       <control_joint_name>cs4_joint</control_joint_name>
-      <control_joint_rad_to_cl>1.7266</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.70864541647572</control_joint_rad_to_cl>
       <windSubTopic>world_wind</windSubTopic>
+      <cm_delta>0</cm_delta>
+      <axial_flow_only>true</axial_flow_only>
+      <axial_momentum_flow>true</axial_momentum_flow>
+      <axial_flow_axis>0 0 1</axial_flow_axis>
+      <radial_symmetry>false</radial_symmetry>
+      <reversible>true</reversible>
     </plugin>
+
     <plugin name="px4::TorqueDisturbancePlugin" filename="TorqueDisturbancePlugin">
       <link_name>base_link</link_name>
       <start_time>15.0</start_time>
