@@ -68,40 +68,40 @@
           <angular_velocity>
             <x>
               <noise type="gaussian">
-                <mean>0</mean>
-                <stddev>0.013798038847</stddev>
+                <mean>0.0</mean>
+                <stddev>0.0008726646</stddev>
               </noise>
             </x>
             <y>
               <noise type="gaussian">
-                <mean>0</mean>
-                <stddev>0.013798038847</stddev>
+                <mean>0.0</mean>
+                <stddev>0.0008726646</stddev>
               </noise>
             </y>
             <z>
               <noise type="gaussian">
-                <mean>0</mean>
-                <stddev>0.013798038847</stddev>
+                <mean>0.0</mean>
+                <stddev>0.0008726646</stddev>
               </noise>
             </z>
           </angular_velocity>
           <linear_acceleration>
             <x>
               <noise type="gaussian">
-                <mean>0</mean>
-                <stddev>0.100718543476</stddev>
+                <mean>0.0</mean>
+                <stddev>0.00637</stddev>
               </noise>
             </x>
             <y>
               <noise type="gaussian">
-                <mean>0</mean>
-                <stddev>0.100718543476</stddev>
+                <mean>0.0</mean>
+                <stddev>0.00637</stddev>
               </noise>
             </y>
             <z>
               <noise type="gaussian">
-                <mean>0</mean>
-                <stddev>0.100718543476</stddev>
+                <mean>0.0</mean>
+                <stddev>0.00686</stddev>
               </noise>
             </z>
           </linear_acceleration>
@@ -115,7 +115,7 @@
           <pressure>
             <noise type="gaussian">
               <mean>0</mean>
-              <stddev>1.0</stddev>
+              <stddev>3</stddev>
             </noise>
           </pressure>
         </air_pressure>
@@ -127,26 +127,17 @@
         <magnetometer>
           <x>
             <noise type="gaussian">
-              <mean>0</mean>
-              <stddev>0.004</stddev>
-              <dynamic_bias_stddev>0.000110851251684</dynamic_bias_stddev>
-              <dynamic_bias_correlation_time>600</dynamic_bias_correlation_time>
+              <stddev>0.0001</stddev>
             </noise>
           </x>
           <y>
             <noise type="gaussian">
-              <mean>0</mean>
-              <stddev>0.004</stddev>
-              <dynamic_bias_stddev>0.000110851251684</dynamic_bias_stddev>
-              <dynamic_bias_correlation_time>600</dynamic_bias_correlation_time>
+              <stddev>0.0001</stddev>
             </noise>
           </y>
           <z>
             <noise type="gaussian">
-              <mean>0</mean>
-              <stddev>0.004</stddev>
-              <dynamic_bias_stddev>0.000110851251684</dynamic_bias_stddev>
-              <dynamic_bias_correlation_time>600</dynamic_bias_correlation_time>
+              <stddev>0.0001</stddev>
             </noise>
           </z>
         </magnetometer>
@@ -155,7 +146,7 @@
         <pose>0.05 0 0.04 0 0 0</pose>
         <gz_frame_id>base_link</gz_frame_id>
         <always_on>true</always_on>
-        <update_rate>5</update_rate>
+        <update_rate>30</update_rate>
       </sensor>
     </link>
 
